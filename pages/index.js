@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main className='flex flex-col justify-center items-center w-full h-full min-h-screen'>
-        <h1 className="text-6xl font-bold">storefront.dev</h1>
+        <h1 className="text-6xl font-bold text-indigo-600">storefront.dev</h1>
         <p className="text-2xl font-semibold">Build better headless storefronts, faster.</p>
       </main>
 
