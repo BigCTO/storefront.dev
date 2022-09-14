@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  :root {
+    --color-primary: #212121;
+    --color-secondary: #0f0;
+    --color-tertiary: #00f;
+    --color-accent: #f0f;
+    --color-primary-inverted: #fff;
+    --color-secondary-inverted: #fff;
+    --color-tertiary-inverted: #fff;
+    --color-accent-inverted: #fff;
+    --color-primary-muted: #fdd;
+    --color-secondary-muted: #dfd;
+    --color-tertiary-muted: #ddf;
+    --color-accent-muted: #fdd;
+    --border-radius: 0.12rem;
+    --border-radius-small: 0.05rem;
+    --border-radius-large: 2rem;
+    --border-radius-full: 9999px;
+  }
+
+  .theme-base {
+    --color-primary: #000;
+    --color-secondary: #0f0;
+    --color-tertiary: #00f;
+    --color-accent: #e0e0e0;
+    --color-primary-inverted: #fff;
+    --color-secondary-inverted: #fff;
+    --color-tertiary-inverted: #fff;
+    --color-accent-inverted: #fff;
+    --color-primary-muted: #fdd;
+    --color-secondary-muted: #dfd;
+    --color-tertiary-muted: #ddf;
+    --color-accent-muted: #fdd;
+    --border-radius: 0.12rem;
+    --border-radius-small: 0.05rem;
+    --border-radius-large: 2rem;
+    --border-radius-full: 9999px;
+  }
+
+  .theme-brutal {
+    --color-primary: red;
+    --color-secondary: #0f0;
+    --color-tertiary: #00f;
+    --color-accent: #f0f;
+    --color-primary-inverted: #fff;
+    --color-secondary-inverted: #fff;
+    --color-tertiary-inverted: #fff;
+    --color-accent-inverted: #fff;
+    --color-primary-muted: #fdd;
+    --color-secondary-muted: #dfd;
+    --color-tertiary-muted: #ddf;
+    --color-accent-muted: #fdd;
+    --border-radius: 0.5rem;
+    --border-radius-small: 1rem;
+    --border-radius-large: 3rem;
+    --border-radius-full: 9999px;
+  }
+
+  .theme-neon {
+    --color-primary: #39FF14;
+    --color-secondary: #0f0;
+    --color-tertiary: #00f;
+    --color-accent: #f0f;
+    --color-primary-inverted: #212121;
+    --color-secondary-inverted: #fff;
+    --color-tertiary-inverted: #fff;
+    --color-accent-inverted: #fff;
+    --color-primary-muted: #fdd;
+    --color-secondary-muted: #dfd;
+    --color-tertiary-muted: #ddf;
+    --color-accent-muted: #fdd;
+    --border-radius: 0.12rem;
+    --border-radius-small: 0.05rem;
+    --border-radius-large: 1rem;
+    --border-radius-full: 9999px;
+  }
+} 
+
