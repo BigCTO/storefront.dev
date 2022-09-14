@@ -115,7 +115,7 @@ export default function Home() {
       </Head>
 
       <main className='flex flex-col justify-center items-center w-full h-full min-h-screen'>
-        <div className="w-full max-w-md mx-auto">
+        <div className="w-full max-w-md mx-auto px-3 md:px-5 lg:px-8">
           <div className="flex justify-end items-center inline-block">
             <select onChange={(e) => setTheme(e.target.value)} className="mt-1 w-32 block rounded-md border border-gray-300 py-2 pl-3 pr-8 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
               <option value='base'>Base</option>
@@ -125,7 +125,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={`theme-${theme} w-full max-w-md mx-auto`}>
+        <div className={`theme-${theme} w-full max-w-md mx-auto px-3 md:px-5 lg:px-8`}>
           <div className="bg-theme-inverted mt-10 border border-theme-accent rounded-theme-base p-5">
             {product.options.map((option) => (
               <div className="pb-4 w-full" key={option.name}>

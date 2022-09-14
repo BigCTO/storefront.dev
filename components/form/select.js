@@ -5,7 +5,7 @@ export default function Radio({option}) {
   const [selected, setSelected] = useState(option.values[0].name)
   return (
     <Listbox value={selected} onChange={setSelected} className="relative z-10" as="div">
-      <Listbox.Button className="w-full p-2 border-2 border-theme-base rounded-theme-lg text-theme-base">{selected}</Listbox.Button>
+      <Listbox.Button className="w-full p-2 border-2 border-theme-base rounded-theme-base text-theme-base">{selected}</Listbox.Button>
       <Transition
           enter="transition duration-100 ease-out"
           enterFrom="transform scale-95 opacity-0"
