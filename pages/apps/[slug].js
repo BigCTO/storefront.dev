@@ -20,9 +20,6 @@ function urlFor (source) {
 
 const AppPage = ({page}) => {
 
-useEffect(() => {
-    console.log(page)
-  },[page])
 
 let [categories] = useState({
   Demo: [
@@ -89,7 +86,7 @@ let [categories] = useState({
           <div className="w-full h-48">
             <Image 
                 src={urlFor(page?.coverImage).url()}
-                alt={page.name}
+                alt={page?.name}
                 layout="fill"
                 objectFit='cover'
                 objectPosition='center' 
@@ -99,7 +96,7 @@ let [categories] = useState({
             <div className="relative h-8 w-full">
               <Image 
                 src={urlFor(page?.logo).url()}
-                alt={page.name}
+                alt={page?.name}
                 layout="fill"
                 objectFit='contain'
                 objectPosition='center' 
