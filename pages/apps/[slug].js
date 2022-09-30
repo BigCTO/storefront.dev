@@ -81,18 +81,19 @@ let [categories] = useState({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="w-full border-b border-gray-200 bg-gray-100">
+      <div className="w-full">
         <div className="relative w-full max-w-5xl mx-auto px-3 md:px-6 lg:px-8">
-          <div className="w-full h-48">
+          <div className="w-full h-48 rounded-md">
             <Image 
                 src={urlFor(page?.coverImage).url()}
                 alt={page?.name}
                 layout="fill"
                 objectFit='cover'
                 objectPosition='center' 
+                className='rounded-b-md'
               />
           </div>
-          <div className="absolute right-5 md:left-5 -bottom-14 h-28 w-28 rounded-full bg-white flex items-center justify-center shadow border border-gray-200 z-10">
+          <div className="absolute right-5 -bottom-14 h-28 w-28 rounded-full bg-white flex items-center justify-center shadow border border-gray-200 z-10">
             <div className="relative h-8 w-full">
               <Image 
                 src={urlFor(page?.logo).url()}
@@ -105,77 +106,79 @@ let [categories] = useState({
           </div>
         </div>
       </div>
-      <div className="mt-10 md:mt-32 w-full max-w-5xl mx-auto px-3 md:px-6 lg:px-8 h-full mb-10">
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
-          <div className="col-span-1 md:col-span-2 px-3 md:px-5 lg:px-8">
-            <h1 className="text-3xl font-semibold mb-2">{page?.name}</h1>
-            <PortableText
-              // Pass in block content straight from Sanity.io
-              content={page?.introduction.body}
-              // Optionally override marks, decorators, blocks, etc. in a flat
-              // structure without doing any gymnastics
-              serializers={{
-                normal: props => <p className="text-gray-600 text-sm mt-1" {...props} />,
-              }}
-            />
-            <a href={`https://${page?.introduction.url}?referrer=storefront.dev`} target="_blank" rel="noreferrer" className="text-blue-500 text-sm mt-1">{page?.introduction.url}</a>
-          </div>
-          <div className="col-span-1 md:col-span-4 px-3 md:px-5 lg:px-8">
-            <div className="w-full">
-              <Tab.Group>
-                <Tab.List className="flex space-x-1 rounded-sm bg-gray-100 p-1">
-                  {Object.keys(categories).map((category) => (
-                    <Tab
-                      key={category}
-                      className={({ selected }) =>
-                        classNames(
-                          'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-black',
-                          'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-                          selected
-                            ? 'bg-white shadow'
-                            : 'text-gray-800 hover:text-gray-900'
-                        )
-                      }
-                    >
-                      {category}
-                    </Tab>
-                  ))}
-                </Tab.List>
-                <Tab.Panels className="mt-2">
-                  {Object.values(categories).map((posts, idx) => (
-                    <Tab.Panel
-                      key={idx}
-                      className={classNames(
-                        'rounded-sm bg-white p-3',
-                        'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
-                      )}
-                    >
-                      {page?.demo?.map(({video},i) => (
-                        <>
-                          {console.log(video)}
-                       
-                        <SanityMuxPlayer
-                          key={i}
-                          assetDocument={video.asset}
-                          autoload={true}
-                          autoplay={false}
-                          className={"w-full"}
-                          height={"100%"}
-                          loop={false}
-                          muted={false}
-                          showControls={true}
-                          style={{}}
-                          width={"100%"}
-                         />
-                         </>
-                      ))}
-                    </Tab.Panel>
-                  ))}
-                </Tab.Panels>
-              </Tab.Group>
-            </div>
+      <div className="mt-10 w-full max-w-5xl mx-auto px-3 h-full mb-10">
+        <div className="col-span-1 md:col-span-2 px-3 md:px-5 lg:px-8">
+          <h1 className="text-3xl font-semibold mb-2">{page?.name}</h1>
+          <div className="w-full max-w-md">
+          <PortableText
+            // Pass in block content straight from Sanity.io
+            content={page?.introduction.body}
+            // Optionally override marks, decorators, blocks, etc. in a flat
+            // structure without doing any gymnastics
+            serializers={{
+              normal: props => <p className="text-gray-600 text-sm mt-1" {...props} />,
+            }}
+          />
+          <a href={`https://${page?.introduction.url}?referrer=storefront.dev`} target="_blank" rel="noreferrer" className="text-blue-500 text-sm mt-1">{page?.introduction.url}</a>
           </div>
         </div>
+       
+        <div className="mt-10 w-full px-3 md:px-5 lg:px-8">
+          <div className="w-full">
+            <Tab.Group>
+              <Tab.List className="flex space-x-1 rounded-sm bg-gray-100 p-1">
+                {Object.keys(categories).map((category) => (
+                  <Tab
+                    key={category}
+                    className={({ selected }) =>
+                      classNames(
+                        'w-full rounded-sm py-2.5 text-sm font-medium leading-5 text-black',
+                        'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
+                        selected
+                          ? 'bg-white shadow'
+                          : 'text-gray-800 hover:text-gray-900'
+                      )
+                    }
+                  >
+                    {category}
+                  </Tab>
+                ))}
+              </Tab.List>
+              <Tab.Panels className="mt-2">
+                {Object.values(categories).map((posts, idx) => (
+                  <Tab.Panel
+                    key={idx}
+                    className={classNames(
+                      'rounded-sm bg-white p-3',
+                      'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
+                    )}
+                  >
+                    {page?.demo?.map(({video},i) => (
+                      <>
+                        {console.log(video)}
+                      
+                      <SanityMuxPlayer
+                        key={i}
+                        assetDocument={video.asset}
+                        autoload={true}
+                        autoplay={false}
+                        className={"w-full"}
+                        height={"100%"}
+                        loop={false}
+                        muted={false}
+                        showControls={true}
+                        style={{}}
+                        width={"100%"}
+                        />
+                        </>
+                    ))}
+                  </Tab.Panel>
+                ))}
+              </Tab.Panels>
+            </Tab.Group>
+          </div>
+        </div>
+      
         <div className="mt-10 border-t border-gray-200 px-3 md:px-5 lg:px-8">
           <h2 className="text-sm mt-5 font-semibold">Integrates With</h2>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-5 mt-5">
