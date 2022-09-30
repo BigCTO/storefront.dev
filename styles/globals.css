@@ -9,6 +9,8 @@
     --color-secondary: #0f0;
     --color-tertiary: #00f;
     --color-accent: #f0f;
+    --color-light: #fff;
+    --color-dark: #212121;
     --color-primary-inverted: #fff;
     --color-secondary-inverted: #fff;
     --color-tertiary-inverted: #fff;
@@ -28,16 +30,18 @@
     --color-secondary: #0f0;
     --color-tertiary: #00f;
     --color-accent: #e0e0e0;
+    --color-light: #fff;
+    --color-dark: #212121;
     --color-primary-inverted: #fff;
     --color-secondary-inverted: #fff;
     --color-tertiary-inverted: #fff;
     --color-accent-inverted: #fff;
-    --color-primary-muted: #fdd;
+    --color-primary-muted: #fafafa;
     --color-secondary-muted: #dfd;
     --color-tertiary-muted: #ddf;
     --color-accent-muted: #fdd;
     --border-radius: 0.5rem;
-    --border-radius-small: 0.125rem;
+    --border-radius-small: 1rem;
     --border-radius-large: 2rem;
     --border-radius-full: 9999px;
   }
@@ -47,16 +51,18 @@
     --color-secondary: #0f0;
     --color-tertiary: #00f;
     --color-accent: #e0e0e0;
+    --color-light: #fff;
+    --color-dark: #212121;
     --color-primary-inverted: #fff;
     --color-secondary-inverted: #fff;
     --color-tertiary-inverted: #fff;
     --color-accent-inverted: #fff;
-    --color-primary-muted: #fdd;
+    --color-primary-muted: #FFB6C1;
     --color-secondary-muted: #dfd;
     --color-tertiary-muted: #ddf;
     --color-accent-muted: #fdd;
     --border-radius: 2rem;
-    --border-radius-small: 1rem;
+    --border-radius-small: 3rem;
     --border-radius-large: 4rem;
     --border-radius-full: 9999px;
   }
@@ -66,11 +72,13 @@
     --color-secondary: #0f0;
     --color-tertiary: #00f;
     --color-accent: #f0f;
+    --color-light: #fff;
+    --color-dark: #212121;
     --color-primary-inverted: #212121;
     --color-secondary-inverted: #fff;
     --color-tertiary-inverted: #fff;
     --color-accent-inverted: #fff;
-    --color-primary-muted: #fdd;
+    --color-primary-muted: #212121;
     --color-secondary-muted: #dfd;
     --color-tertiary-muted: #ddf;
     --color-accent-muted: #fdd;

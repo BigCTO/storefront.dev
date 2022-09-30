@@ -11,9 +11,13 @@
   "dependencies": {
     "@headlessui/react": "^1.7.1",
     "@heroicons/react": "^2.0.11",
+    "@sanity/client": "^3.4.1",
+    "@sanity/image-url": "^1.0.1",
     "next": "12.3.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-portable-text": "^0.5.1",
+    "sanity-mux-player": "^0.0.27"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.9",

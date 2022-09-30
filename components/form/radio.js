@@ -31,7 +31,7 @@ export default function Radio({option, checkedClasses, uncheckedClasses}) {
           <RadioGroup.Option key={i} value={value.name}>
             {({ checked }) => (
      
-              <span className={classNames(checked ? checkedClasses : uncheckedClasses, 'text-theme-base relative overflow-hidden cursor-pointer w-full p-2 flex flex-col justify-center items-center text-xs h-10', option.name === "Color" ? 'w-10 mr-3 rounded-theme-lg' : 'w-full rounded-theme-base ')}>
+              <span className={classNames(checked ? checkedClasses : uncheckedClasses, 'text-theme-base relative overflow-hidden cursor-pointer w-full p-2 flex flex-col justify-center items-center text-xs h-10', option.name === "Color" ? 'w-10 mr-3 rounded-theme-sm' : 'w-full rounded-theme-base ')}>
                 {value.image ? (
                   <img src={value.image} className="w-8" />
                 ) : colors.filter((color) => color.name === value.name)[0] ? (
