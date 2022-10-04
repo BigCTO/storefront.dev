@@ -145,7 +145,7 @@ export default function Index() {
           <div className="hidden md:block sticky top-[150px] col-span-1 h-screen border-dashed border border-gray-200 rounded-md mr-5">
             <span className="text-xs text-center block mt-10">Filter by</span>
           </div>
-          <div className="col-span-1 grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-min">
+          <div className="col-span-2 md:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-min">
             {apps.map((app, i) => (
                 <Link href={app.href} key={i} passHref>
                   <a className="flex flex-col justify-center items-center w-full h-32 rounded-md p-5 rounded-md border hover:bg-gray-100 cursor-pointer">
