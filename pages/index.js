@@ -9,14 +9,14 @@ const apps =[
     name: 'Algolia',
     description: 'Search API.',
     image: '/apps/algolia.svg',
-    href: '/apps/algolia',
+    href: '/apps/swell',
     type: 'search'
   },
   {
     name: 'Snipcart',
     description: 'Snipcart is a headless commerce backend.',
     image: '/apps/snipcart.svg',
-    href: '/apps/snipcart',
+    href: '/apps/swell',
     type: 'backend'
   },
   {
@@ -44,28 +44,28 @@ const apps =[
     name: 'Okendo',
     description: 'Okendo does reviews',
     image: '/apps/okendo.png',
-    href: '/apps/okendo',
+    href: '/apps/swell',
     type: 'reviews'
   },
   {
     name: 'Sanity',
     description: 'Sanity is a headless CMS',
     image: '/apps/sanity.png',
-    href: '/apps/shopify',
+    href: '/apps/swell',
     type: 'CMS'
   },
   {
     name: 'Contenful',
     description: 'Contentful is a CMS',
     image: '/apps/contentful.png',
-    href: '/apps/contetnful',
+    href: '/apps/swell',
     type: 'CMS'
   },
   {
     name: 'DatoCMS',
     description: 'Datocms is a CMS',
     image: '/apps/datocms.svg',
-    href: '/apps/datocms',
+    href: '/apps/swell',
     type: 'CMS'
   },
   {
@@ -79,7 +79,7 @@ const apps =[
     name: 'Saleor',
     description: 'Saleor is a headless commerce backend.',
     image: '/apps/saleor.png',
-    href: '/apps/saleor',
+    href: '/apps/swell',
     type: 'backend'
   },
   {
@@ -93,21 +93,21 @@ const apps =[
     name: 'Omnisend',
     description: 'Omnisend is marketing automation.',
     image: '/apps/omnisend.svg',
-    href: '/apps/omnisend',
+    href: '/apps/swell',
     type: 'marketing'
   },
   {
     name: 'Magento',
     description: 'Snipcart is a headless commerce backend.',
     image: '/apps/magento.png',
-    href: '/apps/magento',
+    href: '/apps/swell',
     type: 'backend'
   },
   {
     name: 'Shopify',
     description: 'Shopify is a headless commerce backend.',
     image: '/apps/shopify.png',
-    href: '/apps/shopify',
+    href: '/apps/swell',
     type: 'backend'
   },
   {
