@@ -84,7 +84,8 @@ let [categories] = useState({
       <div className="w-full">
         <div className="relative w-full max-w-5xl mx-auto px-3 md:px-6 lg:px-8">
           <div className="w-full h-48 rounded-md">
-            <Image 
+            {page?.coverImage && (
+              <Image 
                 src={urlFor(page?.coverImage).url()}
                 alt={page?.name}
                 layout="fill"
@@ -92,16 +93,19 @@ let [categories] = useState({
                 objectPosition='center' 
                 className='rounded-b-md'
               />
+            )}
           </div>
           <div className="absolute right-5 -bottom-14 h-28 w-28 rounded-full bg-white flex items-center justify-center shadow border border-gray-200 z-10">
             <div className="relative h-8 w-full">
-              <Image 
-                src={urlFor(page?.logo).url()}
-                alt={page?.name}
-                layout="fill"
-                objectFit='contain'
-                objectPosition='center' 
-              />
+              {page?.logo && (
+                <Image 
+                  src={urlFor(page?.logo).url()}
+                  alt={page?.name}
+                  layout="fill"
+                  objectFit='contain'
+                  objectPosition='center' 
+                />
+              )}
             </div>
           </div>
         </div>
@@ -184,13 +188,15 @@ let [categories] = useState({
               <Link href={`/apps/${integration.slug.current}`} key={integration._id}>
                 <a className="flex flex-col justify-center items-center border border-gray-200 shadow-sm rounded-md p-5 hover:bg-gray-100">
                   <div className="relative h-6 w-full">
-                    <Image
-                      src={urlFor(integration?.logo).url()}
-                      alt={integration.name}
-                      layout="fill"
-                      objectFit='contain'
-                      objectPosition='center' 
-                    />
+                    {integration?.logo && (
+                      <Image
+                        src={urlFor(integration?.logo).url()}
+                        alt={integration.name}
+                        layout="fill"
+                        objectFit='contain'
+                        objectPosition='center' 
+                      />
+                    )}
                   </div>
                   <div className="mt-2 text-xs text-gray-500 font-medium">{integration.name}</div>
                 </a>
