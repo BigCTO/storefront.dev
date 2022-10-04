@@ -116,7 +116,7 @@ let [categories] = useState({
           <div className="w-full max-w-md">
           <PortableText
             // Pass in block content straight from Sanity.io
-            content={page?.introduction.body}
+            content={page?.introduction?.body || "No content"}
             // Optionally override marks, decorators, blocks, etc. in a flat
             // structure without doing any gymnastics
             serializers={{
