@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 // need an api or package to get hexcode from color name
 
 
@@ -148,7 +149,17 @@ export default function Index() {
             {apps.map((app, i) => (
                 <Link href={app.href} key={i} passHref>
                   <a className="flex flex-col justify-center items-center w-full h-32 rounded-md p-5 rounded-md border hover:bg-gray-100 cursor-pointer">
-                  <img src={app.image} alt={app.name} className="h-10" />
+                  <div className='relative w-full h-10 mb-2'>
+                  <Image 
+                    src={app.image} 
+                    blurDataURL={app.image}
+                    placeholder="blur"
+                    layout='fill'
+                    alt={app.name} 
+                    objectFit='contain'
+                    objectPosition='center'
+                  />
+                  </div>
                   <h3 className="text-xs mt-5">{app.type}</h3>
                   </a>
                 </Link>
