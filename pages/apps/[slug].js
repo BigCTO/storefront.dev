@@ -154,12 +154,10 @@ let [categories] = useState({
                     )}
                   >
                     {page?.demo?.map(({video},i) => (
-                      <>
-                        {console.log(video)}
-                      
+                      <>                      
                       <SanityMuxPlayer
                         key={i}
-                        assetDocument={video.asset}
+                        assetDocument={video?.asset}
                         autoload={true}
                         autoplay={false}
                         className={"w-full"}
@@ -182,12 +180,12 @@ let [categories] = useState({
         <div className="mt-10 border-t border-gray-200 px-3 md:px-5 lg:px-8">
           <h2 className="text-sm mt-5 font-semibold">Integrates With</h2>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-5 mt-5">
-            {page?.integrations.map((integration) => (
+            {page?.integrations?.map((integration) => (
               <Link href={`/apps/${integration.slug.current}`} key={integration._id}>
                 <a className="flex flex-col justify-center items-center border border-gray-200 shadow-sm rounded-md p-5 hover:bg-gray-100">
                   <div className="relative h-6 w-full">
                     <Image
-                      src={urlFor(integration.logo).url()}
+                      src={urlFor(integration?.logo).url()}
                       alt={integration.name}
                       layout="fill"
                       objectFit='contain'
