@@ -36,6 +36,42 @@ const product = {
           id: '6283894973',
           name: 'Purple',
         },
+        {
+          id: '6283894973',
+          name: 'Yellow',
+        },
+      ]
+    },
+    {
+      id: "6283894949",
+      name: "Color",
+      active: true,
+      input_type: "radio",
+      variant: true,
+      required: true,
+      attribute_id: "color",
+      values: [
+        {
+          id: '6283894957',
+          name: 'Red',
+          image: '/apps/swell.png'
+        },
+        {
+          id: '6283894965',
+          name: 'Blue',
+        },
+        {
+          id: '6283894973',
+          name: 'Green',
+        },
+        {
+          id: '6283894973',
+          name: 'Purple',
+        },
+        {
+          id: '6283894973',
+          name: 'Yellow',
+        },
       ]
     },
     {
@@ -53,6 +89,32 @@ const product = {
         {
           id: '6283894952',
           name: 'Medium',
+        },
+        {
+          id: '6283894953',
+          name: 'Large',
+        },
+        {
+          id: '6283894953',
+          name: 'X-Large',
+        }
+      ]
+    },
+    {
+      id: "6283894950",
+      name: "Material",
+      input_type: "select",
+      variant: true,
+      required: true,
+      attribute_id: "meterial",
+      values: [
+        {
+          id: '6283894951',
+          name: 'Silk',
+        },
+        {
+          id: '6283894952',
+          name: 'Cotton',
         },
         {
           id: '6283894953',
