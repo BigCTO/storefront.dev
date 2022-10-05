@@ -1,10 +1,17 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useEffect } from 'react'
+import { sanity } from '../clients/sanity'
+import imageUrlBuilder from '@sanity/image-url'
 // need an api or package to get hexcode from color name
 
+function urlFor (source) {
+  return imageUrlBuilder(sanity).image(source)
+}
 
-const apps =[
+
+const appz =[
   {
     name: 'Algolia',
     description: 'Search API.',
@@ -120,8 +127,13 @@ const apps =[
 
 ]
 
-export default function Index() {
+export default function Index({apps}) {
  
+  useEffect(() => {
+    console.log(apps)
+  }, [apps])
+
+
   return (
     <div>
       <Head>
@@ -140,19 +152,19 @@ export default function Index() {
         </div>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto mt-10 px-3 md:px-6 lg:px-8 mb-10">
-        <div className="grid grid cols-1 md:grid-cols-5">
-          <div className="hidden md:block sticky top-[150px] col-span-1 h-screen border-dashed border border-gray-200 rounded-md mr-5">
+      <div className="w-full max-w-6xl mx-auto mt-10 px-3 md:px-6 lg:px-8 mb-10">
+        <div className="grid grid cols-1 md:grid-cols-4">
+          {/* <div className="hidden md:block sticky top-[150px] col-span-1 h-screen border-dashed border border-gray-200 rounded-md mr-5">
             <span className="text-xs text-center block mt-10">Filter by</span>
-          </div>
+          </div> */}
           <div className="col-span-2 md:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-min">
             {apps.map((app, i) => (
-                <Link href={app.href} key={i} passHref>
+                <Link href={`/apps/${app?.slug.current}`} key={i} passHref>
                   <a className="flex flex-col justify-center items-center w-full h-32 rounded-md p-5 rounded-md border hover:bg-gray-100 cursor-pointer">
                   <div className='relative w-full h-10 mb-2'>
                   <Image 
-                    src={app.image} 
-                    blurDataURL={app.image}
+                    src={urlFor(app?.logo).url()}
+                    blurDataURL={app?.logo}
                     placeholder="blur"
                     layout='fill'
                     alt={app.name} 
@@ -171,4 +183,15 @@ export default function Index() {
 
     </div>
   )
+}
+
+
+export async function getStaticProps(context) {
+
+  const apps = await sanity.fetch(`*[_type == "appPage"]`)
+  return {
+    props: {
+      apps
+    }
+  }
 }
