@@ -172,7 +172,9 @@ export default function Index({apps}) {
                     objectPosition='center'
                   />
                   </div>
-                  <h3 className="text-xs mt-5">{app.type}</h3>
+                  <span className="mt-5 inline-flex items-center rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-800">
+                    <span>{app.type}</span>
+                  </span>
                   </a>
                 </Link>
             ))}

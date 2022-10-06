@@ -7,7 +7,7 @@ import imageUrlBuilder from '@sanity/image-url'
 // need an api or package to get hexcode from color name
 import PortableText from "react-portable-text"
 import { Tab } from '@headlessui/react'
-import SanityMuxPlayer from "sanity-mux-player";
+import { YouTube } from '../../components/video'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -95,8 +95,8 @@ let [categories] = useState({
               />
             )}
           </div>
-          <div className="absolute right-5 -bottom-14 h-28 w-28 rounded-full bg-white flex items-center justify-center shadow border border-gray-200 z-10">
-            <div className="relative h-8 w-full">
+          <div className="block md:hidden absolute right-5 md:-left-8 -bottom-14 md:-bottom-20 h-28 md:h-14 w-28 md:w-14 rounded-full bg-white flex items-center justify-center shadow border border-gray-200 z-10">
+            <div className="relative h-8 w-[90%]">
               {page?.logo && (
                 <Image 
                   src={urlFor(page?.logo).url()}
@@ -110,24 +110,29 @@ let [categories] = useState({
           </div>
         </div>
       </div>
-      <div className="mt-10 w-full max-w-5xl mx-auto px-3 h-full mb-10">
-        <div className="col-span-1 md:col-span-2 px-3 md:px-5 lg:px-8">
-          <h1 className="text-3xl font-semibold mb-2">{page?.name}</h1>
-          <div className="w-full max-w-md">
-          <PortableText
-            // Pass in block content straight from Sanity.io
-            content={page?.introduction?.body || []}
-            // Optionally override marks, decorators, blocks, etc. in a flat
-            // structure without doing any gymnastics
-            serializers={{
-              normal: props => <p className="text-gray-600 text-sm mt-1" {...props} />,
-            }}
-          />
-          <a href={`https://${page?.introduction.url}?referrer=storefront.dev`} target="_blank" rel="noreferrer" className="text-blue-500 text-sm mt-1">{page?.introduction.url}</a>
+      <div className="mt-10 w-full max-w-5xl mx-auto px-3 md:px-5 lg:px-8 h-full my-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+          <div className="col-span-1">
+            <h1 className="text-3xl font-semibold mb-2">{page?.name}</h1>
+            <div className="w-full max-w-md">
+            <PortableText
+              // Pass in block content straight from Sanity.io
+              content={page?.introduction?.body || []}
+              // Optionally override marks, decorators, blocks, etc. in a flat
+              // structure without doing any gymnastics
+              serializers={{
+                normal: props => <p className="text-gray-600 text-sm mt-1" {...props} />,
+              }}
+            />
+            <a href={`https://${page?.introduction.url}?ref=storefront.dev`} target="_blank" rel="noreferrer" className="text-blue-500 text-sm mt-1">{page?.introduction.url}</a>
+            </div>
+          </div>
+          <div className="col-span-1 w-full">
+            <YouTube videoId={page?.introduction?.video} />
           </div>
         </div>
        
-        <div className="mt-10 w-full px-3 md:px-5 lg:px-8">
+        {/* <div className="mt-10 w-full">
           <div className="w-full">
             <Tab.Group>
               <Tab.List className="flex space-x-1 rounded-sm bg-gray-100 p-1">
@@ -157,31 +162,42 @@ let [categories] = useState({
                       'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
                     )}
                   >
-                    {page?.demo?.map(({video},i) => (
-                      <>                      
-                      <SanityMuxPlayer
-                        key={i}
-                        assetDocument={video?.asset}
-                        autoload={true}
-                        autoplay={false}
-                        className={"w-full"}
-                        height={"100%"}
-                        loop={false}
-                        muted={false}
-                        showControls={true}
-                        style={{}}
-                        width={"100%"}
-                        />
-                        </>
-                    ))}
+                    this is a panel
                   </Tab.Panel>
                 ))}
               </Tab.Panels>
             </Tab.Group>
           </div>
+        </div> */}
+
+        <div className="mt-10 border-t border-gray-200 ">
+          <h2 className="text-sm mt-5 font-semibold">Guides</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
+            {page?.guides?.map((guide) => (
+              <Link href={`/guides/${guide.slug.current}`} key={guide._id}>
+                <a className="grid col-span-1 grid-cols-1 md:grid-cols-3 border border-gray-200 shadow-sm rounded-md  hover:bg-gray-100">
+                  <div className="col-span-1 relative h-32 md:h-full w-full">
+                    {guide?.coverImage && (
+                      <Image
+                        src={urlFor(guide?.coverImage).url()}
+                        alt={guide.name}
+                        layout="fill"
+                        objectFit='cover'
+                        objectPosition='center' 
+                      />
+                    )}
+                  </div>
+                  <div className="col-span-1 md:col-span-2 p-3">
+                    <div className="mt-2 text-base md:text-xs text-gray-700 font-medium">{guide?.name}</div>
+                    <div className="mt-2 text-xs text-gray-500 font-light">{guide?.seo?.description}</div>
+                  </div>
+                </a>
+              </Link>
+            ))}
+          </div>
         </div>
       
-        <div className="mt-10 border-t border-gray-200 px-3 md:px-5 lg:px-8">
+        <div className="mt-10 border-t border-gray-200 ">
           <h2 className="text-sm mt-5 font-semibold">Integrates With</h2>
           <div className="grid grid-cols-2 md:grid-cols-6 gap-5 mt-5">
             {page?.integrations?.map((integration) => (
@@ -240,6 +256,7 @@ export async function getStaticProps(context) {
           asset->
         },
       },
+      guides[]->,
       integrations[]->,
     }
   `, { slug })

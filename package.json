@@ -19,6 +19,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-portable-text": "^0.5.1",
+    "react-youtube": "^10.0.0",
     "sanity-mux-player": "^0.0.27"
   },
   "devDependencies": {
