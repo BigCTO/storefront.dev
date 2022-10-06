@@ -1,6 +1,6 @@
 export default {
-  name: 'guide',
-  title: 'Guide',
+  name: 'expert',
+  title: 'Expert',
   type: 'document',
   fields: [
     {
@@ -18,20 +18,29 @@ export default {
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'expert'},
-    },
-    {
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',
     },
     {
-      name: 'body', 
-      type: 'blockContent', 
-      title: 'Body'
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+    },
+    {
+      name: 'introduction',
+      title: 'Introduction',
+      type: 'object',
+      fields: [
+        {name: 'url', type: 'string', title: 'Url'},
+        {name: 'location', type: 'string', title: 'Location'},
+        {name: 'body', type: 'blockContent', title: 'Body'},
+        {
+          name: 'video',
+          title: 'YouTube Video ID',
+          type: 'string'
+        }
+      ],
     },
     {
       name: 'seo',

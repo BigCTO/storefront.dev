@@ -31,6 +31,9 @@ const portableComponents = {
 const pageType = 'guides'
 
 const Guide = ({page}) => {
+  useEffect(() => {
+    console.log(page)
+  },[page])
  
   return (
     <div>
@@ -65,7 +68,24 @@ const Guide = ({page}) => {
       <div className="mt-10 w-full max-w-3xl mx-auto px-3 h-full mb-10">
         <div className="col-span-1 md:col-span-2 px-3 md:px-5 lg:px-8">
           <h1 className="text-3xl font-semibold mb-2">{page?.name}</h1>
-          <h3 className="text-sm text-gray-600 font-regular">Chris Collinsworth</h3>
+          <Link href={`/experts/${page?.author?.slug?.current}`} passHref>
+            <a className="flex items-center mb-4">
+              <div className="mr-4 h-14 w-14 rounded-full bg-white flex items-center justify-center shadow border border-gray-200 z-10">
+                <div className="relative h-8 w-[90%]">
+                  {page?.author?.logo && (
+                    <Image 
+                      src={urlFor(page?.author?.logo).url()}
+                      alt={page?.author?.name}
+                      layout="fill"
+                      objectFit='contain'
+                      objectPosition='center' 
+                    />
+                  )}
+                </div>
+              </div>
+              <h3 className="text-sm text-gray-700 font-semibold">{page?.author?.name}</h3>
+            </a>
+          </Link>
           <div className="w-full mt-10 prose text-justify">
           <PortableText
             // Pass in block content straight from Sanity.io
@@ -97,7 +117,10 @@ export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params
   const page = await sanity.fetch(`
-    *[_type == "guide" && slug.current == $slug][0]
+    *[_type == "guide" && slug.current == $slug][0]{
+      ...,
+      author->,
+    }
   `, { slug })
   return {
     props: {

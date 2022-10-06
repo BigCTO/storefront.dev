@@ -70,7 +70,13 @@ export default {
       title: 'Integrations',
       type: 'array',
       of: [{type: 'reference', to: {type: 'appPage'}}],
-    }
+    },
+    {
+      name: 'experts',
+      title: 'Experts',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'expert'}}],
+    },
   ],
 
   preview: {
