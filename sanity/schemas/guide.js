@@ -27,12 +27,34 @@ export default {
       type: 'blockContent', 
       title: 'Body'
     },
+    {
+      name: 'seo',
+      title: 'SEO',
+      type: 'object',
+      fields: [
+        {
+          name: 'title', 
+          type: 'string', 
+          title: 'Title',
+        },
+        {
+          name: 'description', 
+          type: 'string', 
+          title: 'Description'
+        },
+        {
+          name: 'image', 
+          type: 'image', 
+          title: 'Image',
+      }
+      ],
+    },
   ],
 
   preview: {
     select: {
       title: 'name',
-      media: 'logo',
+      media: 'coverImage',
     },
   },
 }

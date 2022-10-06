@@ -5,9 +5,8 @@ import Link from 'next/link'
 import { sanity } from '../../clients/sanity'
 import imageUrlBuilder from '@sanity/image-url'
 // need an api or package to get hexcode from color name
-import PortableText from "react-portable-text"
+import { PortableText } from '@portabletext/react'
 import { Tab } from '@headlessui/react'
-import SanityMuxPlayer from "sanity-mux-player";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -17,14 +16,33 @@ function urlFor (source) {
   return imageUrlBuilder(sanity).image(source)
 }
 
+const portableComponents = {
+  types: {
+    code: ({value}) => {
+      return (
+        <pre data-language="javascript">
+          <code>{value.code}</code>
+        </pre>
+      )
+    }
+  },
+}
+
+const pageType = 'guides'
 
 const Guide = ({page}) => {
  
   return (
     <div>
       <Head>
-        <title>{page?.name}</title>
-        <meta name="description" content="Build better headless storefronts, faster." />
+        <title>{page?.seo?.title}</title>
+        <meta name="description" content={page?.seo?.description} />
+
+        <meta property="og:title" content={page?.seo?.title}/>
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://storefront.dev/${pageType}/${page?.slug?.current}`} />
+        <meta property="og:description" content={page?.seo?.description} />
+        <meta property="og:image" content={urlFor(page?.seo?.image).url()} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -51,9 +69,11 @@ const Guide = ({page}) => {
           <div className="w-full mt-10 prose text-justify">
           <PortableText
             // Pass in block content straight from Sanity.io
-            content={page?.body || []}
+            value={page?.body || []}
             // Optionally override marks, decorators, blocks, etc. in a flat
             // structure without doing any gymnastics
+            components={portableComponents}
+           
           />
           </div>
         </div>
