@@ -56,6 +56,14 @@ const Guide = ({page}) => {
             // structure without doing any gymnastics
             serializers={{
               block: props => <p className="text-gray-700 text-base md:text-lg mt-2" {...props} />,
+              h1: props => <h1 className="text-3xl font-semibold mb-2" {...props} />,
+              h2: props => <h2 className="text-2xl font-semibold mb-2" {...props} />,
+              h3: props => <h3 className="text-xl font-semibold mb-2" {...props} />,
+              h4: props => <h4 className="text-lg font-semibold mb-2" {...props} />,
+              h5: props => <h5 className="text-base font-semibold mb-2" {...props} />,
+              h6: props => <h6 className="text-sm font-semibold mb-2" {...props} />,
+              li: props => <li className="text-gray-700 text-base md:text-lg mt-2" {...props} />,
+              a: props => <a className="text-blue-600" {...props} />,
             }}
           />
           </div>
