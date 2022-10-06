@@ -30,7 +30,7 @@ const Guide = ({page}) => {
 
       <div className="w-full">
         <div className="relative w-full max-w-5xl mx-auto px-3 md:px-6 lg:px-8">
-          <div className="w-full h-48 rounded-md">
+          <div className="w-full h-48 rounded-b-md shadow-md">
             {page?.coverImage && (
               <Image 
                 src={urlFor(page?.coverImage).url()}
@@ -38,33 +38,22 @@ const Guide = ({page}) => {
                 layout="fill"
                 objectFit='cover'
                 objectPosition='center' 
-                className='rounded-b-md'
+                className='rounded-b-md shadow-sm'
               />
             )}
           </div>
         </div>
       </div>
-      <div className="mt-10 w-full max-w-5xl mx-auto px-3 h-full mb-10">
+      <div className="mt-10 w-full max-w-3xl mx-auto px-3 h-full mb-10">
         <div className="col-span-1 md:col-span-2 px-3 md:px-5 lg:px-8">
           <h1 className="text-3xl font-semibold mb-2">{page?.name}</h1>
           <h3 className="text-sm text-gray-600 font-regular">Chris Collinsworth</h3>
-          <div className="w-full mt-10">
+          <div className="w-full mt-10 prose text-justify">
           <PortableText
             // Pass in block content straight from Sanity.io
             content={page?.body || []}
             // Optionally override marks, decorators, blocks, etc. in a flat
             // structure without doing any gymnastics
-            serializers={{
-              block: props => <p className="text-gray-700 text-base md:text-lg mt-2" {...props} />,
-              h1: props => <h1 className="text-3xl font-semibold mb-2" {...props} />,
-              h2: props => <h2 className="text-2xl font-semibold mb-2" {...props} />,
-              h3: props => <h3 className="text-xl font-semibold mb-2" {...props} />,
-              h4: props => <h4 className="text-lg font-semibold mb-2" {...props} />,
-              h5: props => <h5 className="text-base font-semibold mb-2" {...props} />,
-              h6: props => <h6 className="text-sm font-semibold mb-2" {...props} />,
-              li: props => <li className="text-gray-700 text-base md:text-lg mt-2" {...props} />,
-              a: props => <a className="text-blue-600" {...props} />,
-            }}
           />
           </div>
         </div>

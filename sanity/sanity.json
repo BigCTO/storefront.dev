@@ -12,7 +12,8 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "mux-input"
+    "mux-input",
+    "@sanity/code-input"
   ],
   "env": {
     "development": {
