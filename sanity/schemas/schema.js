@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import blockContent from './blockContent'
 import appPage from './appPage'
 import videoBlock from './videoBlock'
+import guide from './guide'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -13,6 +14,7 @@ export default createSchema({
   types: schemaTypes.concat([
     // Your types here
     appPage,
+    guide,
     blockContent,
     videoBlock
   ]),

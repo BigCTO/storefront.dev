@@ -59,7 +59,7 @@ const company = [
 const resources = [
   { name: 'Community', href: '#', icon: UserGroupIcon },
   { name: 'Partners', href: '#', icon: GlobeAltIcon },
-  { name: 'Guides', href: '#', icon: BookmarkSquareIcon },
+  { name: 'Guides', href: '/guides', icon: BookmarkSquareIcon },
   { name: 'Webinars', href: '#', icon: ComputerDesktopIcon },
 ]
 const blogPosts = [
@@ -94,7 +94,7 @@ export default function Header() {
           <div>
             <Link href="/" passHref>
             <a className="flex">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Storefront</span>
               <img src="/storefront.svg" alt="storefront.dev" className="h-5" />
             </a>
             </Link>
@@ -183,9 +183,11 @@ export default function Header() {
                   </>
                 )}
               </Popover>
-              <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Pricing
-              </a>
+              <Link href="/guides" passHref>
+                <a className="text-base font-medium text-gray-500 hover:text-gray-900">
+                  Guides
+                </a>
+              </Link>
               <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Docs
               </a>

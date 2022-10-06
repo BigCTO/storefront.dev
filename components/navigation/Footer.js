@@ -11,7 +11,7 @@ export default function Footer() {
       >
         We believe the internet is the best platfrom for commerce.{' '}
       </a>
-      <span className="font-bold text-sm uppercase mt-3">Powered by people</span>
+      <span className="font-bold text-sm uppercase mt-3">storefront.dev</span>
     </footer>
   )
 }
