@@ -42,7 +42,7 @@ const Guide = ({page}) => {
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://storefront.dev/${pageType}/${page?.slug?.current}`} />
         <meta property="og:description" content={page?.seo?.description} />
-        <meta property="og:image" content={urlFor(page?.seo?.image).url() || ""} />
+        {page?.seo?.image && <meta property="og:image" content={urlFor(page?.seo?.image).url()} />}
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
