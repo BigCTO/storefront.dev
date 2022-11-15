@@ -90,7 +90,7 @@ export default function Header() {
     <Popover className="relative bg-white sticky top-0 z-50">
       <div className="pointer-events-none absolute inset-0 z-30 shadow" aria-hidden="true" />
       <div className="relative z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between  py-5 sm:py-4 md:justify-start md:space-x-10 px-3 md:px-6 lg:px-8">
           <div>
             <Link href="/" passHref>
             <a className="flex">
