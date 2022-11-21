@@ -10,7 +10,7 @@ export default function Index({apps}) {
   return (
     <div>
       <Head>
-        <title>Apps</title>
+        <title>Home</title>
         <meta name="description" content="Build better headless storefronts, faster." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -34,25 +34,25 @@ export default function Index({apps}) {
         <div className="w-full max-w-5xl mx-auto mt-10 flex flex-col items-center justify-center">
           <h2 className="font-light mb-5 italic">Deploys with these apps out of the box</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-sm p-2">
+            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-md p-2">
               <div className="relative w-24 h-24 flex flex-col justify-between">
                 <Image src="/apps/swell.png" alt="swell" layout="fill" className='object-contain object-center w-full mx-2' />
                 <span className="text-center text-xs text-gray-700">Backend</span>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-sm p-2">
+            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-md p-2">
               <div className="relative w-24 h-24 flex flex-col justify-between">
                 <Image src="/apps/rally.svg" alt="swell" layout="fill" className='object-contain object-center w-full mx-2' />
                 <span className="text-center text-xs text-gray-700">Checkout</span>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-sm p-2">
+            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-md p-2">
               <div className="relative w-24 h-24 flex flex-col justify-between">
                 <Image src="/apps/jshot-stacked.svg" alt="swell" layout="fill" className='object-contain object-center w-full mx-2' />
                 <span className="text-center text-xs text-gray-700">Customer Portal</span>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-sm p-2">
+            <div className="flex flex-col justify-center items-center bg-gray-100 border border-gray-200 rounded-md p-2">
               <div className="relative w-24 h-24 flex flex-col justify-between">
                 <Image src="/apps/sanity.png" alt="swell" layout="fill" className='object-contain object-center w-full mx-2' />
                 <span className="text-center text-xs text-gray-700">CMS</span>

@@ -7,14 +7,13 @@ import {
   BookmarkSquareIcon,
   BriefcaseIcon,
   BuildingOfficeIcon,
+  BuildingStorefrontIcon,
   ChartBarIcon,
-  CheckCircleIcon,
   ComputerDesktopIcon,
   CursorArrowRaysIcon,
   GlobeAltIcon,
   InformationCircleIcon,
   NewspaperIcon,
-  PhoneIcon,
   PlayIcon,
   ShieldCheckIcon,
   Squares2X2Icon,
@@ -26,15 +25,21 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 const solutions = [
   {
     name: 'Apps',
-    description: 'Find the best apps for you business and then build your headless storefronts app stack',
+    description: 'Find the best apps that are compatible with your storefront components.',
     href: '/apps',
     icon: ChartBarIcon,
   },
   {
-    name: 'Storefronts',
-    description: "Find a pre-built headless storefront to use as a starting point for your project.",
-    href: '/storefronts',
+    name: 'Components',
+    description: "Find a pre-built headless components to use in your storefront.",
+    href: '/components',
     icon: Squares2X2Icon,
+  },
+  {
+    name: 'Showcase',
+    description: 'A directory of the best headless storefronts on the interent.',
+    href: '/showcase',
+    icon: BuildingStorefrontIcon,
   },
   {
     name: 'Agencies & Freelancers',
@@ -42,12 +47,9 @@ const solutions = [
     href: '/partners',
     icon: CursorArrowRaysIcon,
   },
-  { name: 'Jobs', description: "Looking to hire? Use our job board to find people who believe in the future of commerce.", href: '/jobs', icon: ShieldCheckIcon },
 ]
 const callsToAction = [
   { name: 'Watch Demo', href: '#', icon: PlayIcon },
-  { name: 'View All Products', href: '#', icon: CheckCircleIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
 ]
 const company = [
   { name: 'About', href: '#', icon: InformationCircleIcon },
@@ -105,6 +107,11 @@ export default function Header() {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
           </div>
+          <Link href="/guides" passHref>
+            <a className="text-base font-medium text-gray-500 hover:text-gray-900">
+              Guides
+            </a>
+          </Link>
           <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
             <Popover.Group as="nav" className="flex space-x-10">
               <Popover>
@@ -183,15 +190,7 @@ export default function Header() {
                   </>
                 )}
               </Popover>
-              <Link href="/guides" passHref>
-                <a className="text-base font-medium text-gray-500 hover:text-gray-900">
-                  Guides
-                </a>
-              </Link>
-              <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Docs
-              </a>
-              <Popover>
+              {/* <Popover>
                 {({ open }) => (
                   <>
                     <Popover.Button
@@ -290,7 +289,7 @@ export default function Header() {
                     </Transition>
                   </>
                 )}
-              </Popover>
+              </Popover> */}
             </Popover.Group>
             <div className="flex items-center md:ml-12">
               <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
@@ -298,7 +297,7 @@ export default function Header() {
               </a>
               <a
                 href="#"
-                className="ml-8 inline-flex items-center justify-center rounded-sm border border-transparent bg-gray-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-gray-700"
+                className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-gray-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-gray-700"
               >
                 Sign up
               </a>

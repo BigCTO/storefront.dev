@@ -190,7 +190,7 @@ export default function Index({apps}) {
 
 export async function getStaticProps(context) {
 
-  const apps = await sanity.fetch(`*[_type == "appPage"]`)
+  const apps = await sanity.fetch(`*[_type == "tool"]`)
   return {
     props: {
       apps

@@ -253,7 +253,7 @@ let [categories] = useState({
 
 export async function getStaticPaths() {
   const paths = await sanity.fetch(
-    `*[_type == "appPage" && defined(slug.current)][].slug.current`
+    `*[_type == "tool" && defined(slug.current)][].slug.current`
   )
 
   return {
@@ -266,7 +266,7 @@ export async function getStaticProps(context) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params
   const page = await sanity.fetch(`
-    *[_type == "appPage" && slug.current == $slug][0]{
+    *[_type == "tool" && slug.current == $slug][0]{
       ...,
       demo[]-> {
         ...,

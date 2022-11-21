@@ -9,7 +9,7 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        We believe the internet is the best platfrom for commerce.{' '}
+        The internet is the e-commerce ecosystem.{' '}
       </a>
       <span className="font-bold text-sm uppercase mt-3">storefront.dev</span>
     </footer>
