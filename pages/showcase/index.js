@@ -30,14 +30,14 @@ export default function Guides({guides}) {
         <div className="w-full max-w-7xl mx-auto py-10 px-3 md:px-6 lg:px-8">
           <div className="flex flex-col justify-center items-center w-full h-full">
             <h1 className="text-4xl font-bold">Showcase</h1>
-            <h2 className="font-light text-xl mt-3">Directory of the best headless storefronts on the internet.</h2>
+            <h2 className="font-light text-xl mt-3 text-center">Directory of the best headless storefronts on the internet.</h2>
           </div>
         </div>
       </div>
 
       <div className="w-full max-w-6xl mx-auto mt-10 px-3 md:px-6 lg:px-8 mb-10">
         <div className="grid grid cols-1 md:grid-cols-4">
-          <div className="col-span-2 md:col-span-4 grid grid-cols-2 md:grid-cols-2 gap-4 auto-rows-min">
+          <div className="col-span-2 md:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-min">
             {guides.map((guide, i) => (
                 <Link href={`/showcase/${guide?.slug.current}`} key={i} passHref>
                   <a className="flex flex-col w-full h-[300px] rounded-md rounded-md border hover:bg-gray-100 cursor-pointer">

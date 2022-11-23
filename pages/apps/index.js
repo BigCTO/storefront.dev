@@ -146,8 +146,7 @@ export default function Index({apps}) {
         <div className="w-full max-w-7xl mx-auto py-10 px-3 md:px-6 lg:px-8">
           <div className="flex flex-col justify-center items-center w-full h-full">
             <h1 className="text-4xl font-bold">Apps</h1>
-            <h2 className="font-light text-xl mt-3">Find apps that are compatible with your #headless commerce website.</h2>
-            <input className="w-full max-w-md border border-gray-300 rounded-md p-2 mt-5" placeholder="Search for apps" />
+            <h2 className="font-light text-xl mt-3 text-center">Find apps that are compatible with your headless commerce website.</h2>
           </div>
         </div>
       </div>

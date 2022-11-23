@@ -178,62 +178,81 @@ export default function Storefronts() {
   const [theme, setTheme] = useState('base')
 
   return (
- 
-    <div className="w-full max-w-6xl mx-auto border border-gray-300 rounded-md my-20">
-      <div className='flex w-full items-center h-16 border-b border-gray-200'>
-        <div className='max-w-7xl mx-auto w-full flex items-center justify-between px-3 md:px-5 lg:px-8'>
-          <div className='flex justify-start w-full'>
-            <Link href='/' passHref>
-              <a className='text-2xl font-bold'>Dennis</a>
-            </Link>
-          </div>
-          <div className='flex justify-end w-full'>
-            <select onChange={(e) => setTheme(e.target.value)} className="mt-1 w-32 block rounded-md border border-gray-300 py-2 pl-3 pr-8 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
-              <option value='base'>Base</option>
-              <option value='brutal'>Brutal</option>
-              <option value='neon'>Neon</option>
-            </select>
+    <>
+  
+        <Head>
+          <title>Components</title>
+          <meta name="description" content="Build better headless storefronts, faster." />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
+        <div className="w-full border-b border-gray-200 bg-gray-100">
+          <div className="w-full max-w-7xl mx-auto py-10 px-3 md:px-6 lg:px-8">
+            <div className="flex flex-col justify-center items-center w-full h-full">
+              <h1 className="text-4xl font-bold">Components</h1>
+              <h2 className="font-light text-xl mt-3 text-center">Pre-coded sections of your storefront that can be dropped into your website for immediate use.</h2>
             </div>
+          </div>
         </div>
+
+        <div className="w-full max-w-6xl mx-auto border border-gray-300 rounded-md my-20">
+        <div className='flex w-full items-center h-16 border-b border-gray-200'>
+          <div className='max-w-7xl mx-auto w-full flex items-center justify-between px-3 md:px-5 lg:px-8'>
+            <div className='flex justify-start w-full'>
+              <Link href='/' passHref>
+                <a className='text-2xl font-bold'>Dennis</a>
+              </Link>
+            </div>
+            <div className='flex justify-end w-full'>
+              <select onChange={(e) => setTheme(e.target.value)} className="mt-1 w-32 block rounded-md border border-gray-300 py-2 pl-3 pr-8 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                <option value='base'>Base</option>
+                <option value='brutal'>Brutal</option>
+                <option value='neon'>Neon</option>
+              </select>
+              </div>
+          </div>
+        </div>
+
+        <main className={`theme-${theme}`}>
+          <div className="flex flex-col justify-center items-center w-full py-5 md:py-20 bg-theme-muted">
+            <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-1 md:grid-cols-3 gap-10 px-3 md:px-5 lg:px-8">
+              <div className="col-span-1 md:col-span-2 w-full h-56 md:h-full flex flex-col justify-center items-center border border-gray-200 bg-theme-inverted border border-theme-accent rounded-theme-base">
+                <h6 className="text-xs text-gray-400 mb-1">Image Slider</h6>
+              </div>
+              <div className='col-span-1 w-full mx-auto'>
+                <div className="w-full">
+                  <h1 className="text-3xl font-bold mb-2 theme-text-light">{product.name}</h1>
+                </div>
+                <h6 className="text-xs text-gray-400 mb-1">Product Options</h6>
+                <div className="w-full bg-theme-inverted border border-theme-accent rounded-theme-base p-5">
+                  {product.options.map((option) => (
+                    <div className="pb-4 w-full" key={option.name}>
+                      <h2 className="text-theme-base uppercase font-medium text-sm tracking-wide mb-5">
+                        {option.name}
+                      </h2>
+                      {option.input_type === 'radio' ? (
+                        // turn this into its own component
+                        <Radio 
+                          option={option} 
+                          checkedClasses={'border-2 border-theme-base'} 
+                          uncheckedClasses={'border border-theme-accent'}
+                        />
+
+                      ) : option.input_type === 'select' ? (
+                        // turn this into its own component
+                        <Select option={option} />
+                      ) : null}
+                      
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
-
-      <main className={`theme-${theme}`}>
-        <div className="flex flex-col justify-center items-center w-full py-5 md:py-20 bg-theme-muted">
-          <div className="max-w-7xl mx-auto h-full w-full grid grid-cols-1 md:grid-cols-3 gap-10 px-3 md:px-5 lg:px-8">
-            <div className="col-span-1 md:col-span-2 w-full h-56 md:h-full flex flex-col justify-center items-center border border-gray-200 bg-theme-inverted border border-theme-accent rounded-theme-base">
-              <h6 className="text-xs text-gray-400 mb-1">Image Slider</h6>
-            </div>
-            <div className='col-span-1 w-full mx-auto'>
-              <div className="w-full">
-                <h1 className="text-3xl font-bold mb-2 theme-text-light">{product.name}</h1>
-              </div>
-              <h6 className="text-xs text-gray-400 mb-1">Product Options</h6>
-              <div className="w-full bg-theme-inverted border border-theme-accent rounded-theme-base p-5">
-                {product.options.map((option) => (
-                  <div className="pb-4 w-full" key={option.name}>
-                    <h2 className="text-theme-base uppercase font-medium text-sm tracking-wide mb-5">
-                      {option.name}
-                    </h2>
-                    {option.input_type === 'radio' ? (
-                      // turn this into its own component
-                      <Radio 
-                        option={option} 
-                        checkedClasses={'border-2 border-theme-base'} 
-                        uncheckedClasses={'border border-theme-accent'}
-                      />
-
-                    ) : option.input_type === 'select' ? (
-                      // turn this into its own component
-                      <Select option={option} />
-                    ) : null}
-                    
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-        </div>
+        
+    </>
+    
     )
 }
