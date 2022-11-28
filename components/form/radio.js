@@ -24,27 +24,32 @@ export default function Radio({option, checkedClasses, uncheckedClasses}) {
 
 
   return (
-    <RadioGroup value={selected} onChange={setSelected} className={classNames(option.name === "Color" ? `flex items-center` : `grid gap-5 grid-cols-3`)}>
-    <RadioGroup.Label className="sr-only">{option.name}</RadioGroup.Label>
-      {option.values.map((value, i) => {
-        return (
-          <RadioGroup.Option key={i} value={value.name}>
-            {({ checked }) => (
-     
-              <span className={classNames(checked ? checkedClasses : uncheckedClasses, 'text-theme-base relative overflow-hidden cursor-pointer w-full p-2 flex flex-col justify-center items-center text-xs h-10', option.name === "Color" ? 'w-10 mr-3 rounded-theme-sm' : 'w-full rounded-theme-base ')}>
-                {value.image ? (
-                  <img src={value.image} className="w-8" />
-                ) : colors.filter((color) => color.name === value.name)[0] ? (
-                  <div className="w-full h-full absolute inset-0" style={{backgroundColor: colors.filter((color) => color.name === value.name)[0].value}}></div>
-                ) : (
-                  value.name
-                )}
-              </span>
-             
-            )}
-          </RadioGroup.Option>
-        )
-      })}
-  </RadioGroup>
+    <div>
+      <h2 className="text-theme-base uppercase font-medium text-sm tracking-wide my-3">
+        {option.name}: {selected}
+      </h2>
+      <RadioGroup value={selected} onChange={setSelected} className={classNames(option.name === "Color" ? `flex items-center` : `grid gap-5 grid-cols-3`)}>
+        <RadioGroup.Label className="sr-only">{option.name}</RadioGroup.Label>
+        {option.values.map((value, i) => {
+          return (
+            <RadioGroup.Option key={i} value={value.name}>
+              {({ checked }) => (
+      
+                <span className={classNames(checked ? checkedClasses : uncheckedClasses, 'relative overflow-hidden cursor-pointer w-full flex flex-col justify-center items-center text-xs h-10', option.name === "Color" ? 'w-10 mr-3 rounded-full' : 'w-full rounded-full')}>
+                  {value.image ? (
+                    <img src={value.image} className="w-full h-full" />
+                  ) : colors.filter((color) => color.name === value.name)[0] ? (
+                    <div className="w-full h-full absolute inset-0" style={{backgroundColor: colors.filter((color) => color.name === value.name)[0].value}}></div>
+                  ) : (
+                    value.name
+                  )}
+                </span>
+              
+              )}
+            </RadioGroup.Option>
+          )
+        })}
+    </RadioGroup>
+    </div>
   )
 }

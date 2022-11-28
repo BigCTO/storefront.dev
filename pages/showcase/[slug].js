@@ -74,8 +74,8 @@ const Showcase = ({page}) => {
                 <h2 className="text-base font-bold">Apps</h2>
                 <div className="flex flex-wrap">
                   {page?.apps?.map((tag, index) => (
-                    <Link href={`/apps/${tag.slug.current}`} key={index}>
-                      <a className="bg-gray-100 text-gray-500 text-xs font-medium rounded-md px-2 py-1 mt-2 mr-2 mb-2 hover:bg-gray-200">{tag.name}</a>
+                    <Link href={`/apps/${tag.slug.current}`} key={index} className="bg-gray-100 text-gray-500 text-xs font-medium rounded-md px-2 py-1 mt-2 mr-2 mb-2 hover:bg-gray-200">
+                      {tag.name}
                     </Link>
                   ))}
                 </div>

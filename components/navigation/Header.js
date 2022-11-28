@@ -4,20 +4,6 @@ import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
-  BookmarkSquareIcon,
-  BriefcaseIcon,
-  BuildingOfficeIcon,
-  BuildingStorefrontIcon,
-  ChartBarIcon,
-  ComputerDesktopIcon,
-  CursorArrowRaysIcon,
-  GlobeAltIcon,
-  InformationCircleIcon,
-  NewspaperIcon,
-  PlayIcon,
-  ShieldCheckIcon,
-  Squares2X2Icon,
-  UserGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -27,6 +13,8 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 const pages =[
   {name: 'Apps', href: '/apps'},
   {name: 'Components', href: '/components'},
+  {name: 'Themes', href: '/themes'},
+  {name: 'Documentation', href: '/docs'},
 ]
 
 function classNames(...classes) {
@@ -35,16 +23,16 @@ function classNames(...classes) {
 
 export default function Header() {
   return (
-    <Popover className="relative bg-white sticky top-0 z-50">
+    <Popover className="relative bg-gray-900 sticky top-0 z-50">
       <div className="pointer-events-none absolute inset-0 z-30 shadow" aria-hidden="true" />
-      <div className="relative z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between  py-5 sm:py-4 md:justify-start md:space-x-10 px-3 md:px-6 lg:px-8">
+      <div className="relative z-20 px-3 md:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between py-5 sm:py-4 md:justify-start md:space-x-10">
           <div>
-            <Link href="/" passHref>
-              <a className="flex">
+            <Link href="/">
+              <div className="flex">
                 <span className="sr-only">Storefront</span>
-                <img src="/storefront.svg" alt="storefront.dev" className="h-5" />
-              </a>
+                <img src="/storefront.svg" alt="storefront.dev" className="h-5 invert" />
+              </div>
             </Link>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
@@ -54,10 +42,10 @@ export default function Header() {
             </Popover.Button>
           </div>
           {pages.map((page) => (
-            <Link key={page.name} href={page.href} passHref>
-              <a className="hidden md:block text-base font-medium text-gray-500 hover:text-gray-900">
-                {page.name}
-              </a>
+            <Link key={page.name} href={page.href} className="hidden md:block text-base font-medium text-gray-300 hover:text-gray-400">
+              
+              {page.name}
+              
             </Link>
           ))}
           <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
@@ -164,14 +152,13 @@ export default function Header() {
               </Popover> */}
             </Popover.Group>
             <div className="flex items-center md:ml-12">
-              <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                Sign in
-              </a>
               <a
-                href="#"
-                className="ml-8 inline-flex items-center justify-center rounded-md border border-transparent bg-gray-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-gray-700"
+                href="https://discord.gg/56n5b36Qct"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md border border-indigo-400 text-indigo-400 bg-transparent px-3 py-2 text-sm font-medium shadow-sm"
               >
-                Sign up
+                <img src="/discord.svg" className="h-6 w-6 mr-2" />Join our Discord
               </a>
             </div>
           </div>
@@ -212,12 +199,10 @@ export default function Header() {
                 <nav>
                   <div className="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
                     {pages.map((item) => (
-                      <Link href={item.href} key={item.name} passHref>
-                        <a
-                          className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50"
-                        >
+                      <Link href={item.href} key={item.name} className="-m-3 flex items-center rounded-lg p-3 hover:bg-gray-50">
+                      
                           <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
-                        </a>
+                       
                       </Link>
                     ))}
                   </div>
@@ -228,7 +213,6 @@ export default function Header() {
               <div className="mt-6">
                 <a
                   href="#"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-gray-900 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-gray-700"
                 >
                   Sign up
                 </a>

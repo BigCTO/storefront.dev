@@ -68,8 +68,8 @@ const Guide = ({page}) => {
       <div className="mt-10 w-full max-w-3xl mx-auto px-3 h-full mb-10">
         <div className="col-span-1 md:col-span-2 px-3 md:px-5 lg:px-8">
           <h1 className="text-3xl font-semibold mb-2">{page?.name}</h1>
-          <Link href={`/experts/${page?.author?.slug?.current}`} passHref>
-            <a className="flex items-center mb-4">
+          <Link href={`/experts/${page?.author?.slug?.current}`}>
+            <div className="flex items-center mb-4">
               <div className="mr-4 h-14 w-14 rounded-full bg-white flex items-center justify-center shadow border border-gray-200 z-10">
                 <div className="relative h-8 w-[90%]">
                   {page?.author?.logo && (
@@ -84,7 +84,7 @@ const Guide = ({page}) => {
                 </div>
               </div>
               <h3 className="text-sm text-gray-700 font-semibold">{page?.author?.name}</h3>
-            </a>
+            </div>
           </Link>
           <div className="w-full mt-10 prose text-justify">
           <PortableText

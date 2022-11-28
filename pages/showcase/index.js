@@ -40,7 +40,7 @@ export default function Guides({guides}) {
           <div className="col-span-2 md:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-min">
             {guides.map((guide, i) => (
                 <Link href={`/showcase/${guide?.slug.current}`} key={i} passHref>
-                  <a className="flex flex-col w-full h-[300px] rounded-md rounded-md border hover:bg-gray-100 cursor-pointer">
+                  <div className="flex flex-col w-full h-[300px] rounded-md rounded-md border hover:bg-gray-100 cursor-pointer">
                     <div className='relative w-full h-48 mb-2'>
                       <Image 
                         src={urlFor(guide?.coverImage).url()}
@@ -57,13 +57,13 @@ export default function Guides({guides}) {
                       <h3 className="text-xl font-bold mt-2">{guide?.name}</h3>
                       <div className="flex flex-wrap">
                         {guide?.apps?.map((tag, index) => (
-                          <Link href={`/apps/${tag.slug.current}`} key={index}>
-                            <a className="bg-gray-100 text-gray-500 text-xs font-medium rounded-md px-2 py-1 mt-2 mr-2 mb-2 hover:bg-gray-200">{tag.name}</a>
+                          <Link href={`/apps/${tag.slug.current}`} key={index} className="bg-gray-100 text-gray-500 text-xs font-medium rounded-md px-2 py-1 mt-2 mr-2 mb-2 hover:bg-gray-200">
+                            {tag.name}
                           </Link>
                         ))}
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </Link>
             ))}
           </div>   

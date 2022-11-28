@@ -158,23 +158,20 @@ export default function Index({apps}) {
           </div> */}
           <div className="col-span-2 md:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-min">
             {apps.map((app, i) => (
-                <Link href={`/apps/${app?.slug.current}`} key={i} passHref>
-                  <a className="flex flex-col justify-center items-center w-full h-32 rounded-md p-5 rounded-md border hover:bg-gray-100 cursor-pointer">
-                  <div className='relative w-full h-10 mb-2'>
-                  <Image 
-                    src={urlFor(app?.logo).url()}
-                    blurDataURL={app?.logo}
-                    placeholder="blur"
-                    layout='fill'
-                    alt={app.name} 
-                    objectFit='contain'
-                    objectPosition='center'
-                  />
+                <Link href={`/apps/${app?.slug.current}`} key={i}>
+                  <div className="flex flex-col justify-center items-center w-full h-32 rounded-md p-5 rounded-md border hover:bg-gray-100 cursor-pointer">
+                    <div className='relative w-full h-10 mb-2'>
+                    <Image 
+                      src={urlFor(app?.logo).url()}
+                      fill
+                      alt={app.name} 
+                      className="object-contain object-center"
+                    />
+                    </div>
+                    <span className="mt-5 inline-flex items-center rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-800">
+                      <span>{app.type}</span>
+                    </span>
                   </div>
-                  <span className="mt-5 inline-flex items-center rounded-full bg-stone-100 px-2.5 py-0.5 text-xs font-medium text-stone-800">
-                    <span>{app.type}</span>
-                  </span>
-                  </a>
                 </Link>
             ))}
           </div>   

@@ -122,7 +122,7 @@ const AppPage = ({page}) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
             {page?.guides?.map((guide) => (
               <Link href={`/guides/${guide.slug.current}`} key={guide._id}>
-                <a className="grid col-span-1 grid-cols-1 md:grid-cols-3 border border-gray-200 shadow-sm rounded-md  hover:bg-gray-100">
+                <div className="grid col-span-1 grid-cols-1 md:grid-cols-3 border border-gray-200 shadow-sm rounded-md  hover:bg-gray-100">
                   <div className="col-span-1 relative h-32 md:h-full w-full">
                     {guide?.coverImage && (
                       <Image
@@ -138,7 +138,7 @@ const AppPage = ({page}) => {
                     <div className="mt-2 text-base md:text-xs text-gray-700 font-medium">{guide?.name}</div>
                     <div className="mt-2 text-xs text-gray-500 font-light">{guide?.seo?.description}</div>
                   </div>
-                </a>
+                </div>
               </Link>
             ))}
           </div>
@@ -149,7 +149,7 @@ const AppPage = ({page}) => {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-5 mt-5">
             {page?.integrations?.map((integration) => (
               <Link href={`/apps/${integration.slug.current}`} key={integration._id}>
-                <a className="flex flex-col justify-center items-center border border-gray-200 shadow-sm rounded-md p-5 hover:bg-gray-100">
+                <div className="flex flex-col justify-center items-center border border-gray-200 shadow-sm rounded-md p-5 hover:bg-gray-100">
                   <div className="relative h-6 w-full">
                     {integration?.logo && (
                       <Image
@@ -162,7 +162,7 @@ const AppPage = ({page}) => {
                     )}
                   </div>
                   <div className="mt-2 text-xs text-gray-500 font-medium">{integration.name}</div>
-                </a>
+                </div>
               </Link>
             ))}
           </div>
