@@ -1,6 +1,6 @@
 import { Slider } from "../../../components/storefront"
 
-export default MediaSlider = () => {
+export default function MediaSlider() {
   return (
     <div>
       <h2 className="text-3xl font-bold mt-10 mb-5">Product</h2>
