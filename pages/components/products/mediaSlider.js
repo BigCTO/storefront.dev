@@ -1,3 +1,4 @@
+import { Slider } from "../../../components/storefront"
 
 export default MediaSlider = () => {
   return (

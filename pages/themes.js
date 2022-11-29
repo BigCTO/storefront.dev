@@ -133,7 +133,7 @@ export default function Themes() {
           <p className="text-gray-50 max-w-2xl w-full">Storefront Themes are the combination of a Tailwind Theme or Preset with select components. Every component on storefront.dev is compatible with any theme.</p>
         
           <h2 className="text-2xl text-gray-50 mt-10">What is a Tailwind Theme</h2>
-          <p className="text-gray-50">A Tailwind Theme is base set of configuration for Tailwind CSS that allows you to control the values of Tailwind's utility classes.</p>
+          <p className="text-gray-50">A Tailwind Theme is base set of configuration for Tailwind CSS that allows you to control the values of Tailwind&apos;s utility classes.</p>
         </div>
 
 

@@ -1,126 +1,90 @@
 import { useState } from 'react'
 import Head from 'next/head'
-import Radio from '../../../components/form/radio'
-import Select from '../../../components/form/select'
-import { BasicHero, Slider } from '../../../components/storefront'
-// need an api or package to get hexcode from color name
+import { ProductOptions } from '../../../components/storefront'
+import Toggle from '../../../components/toggle'
+import { DocumentDuplicateIcon } from '@heroicons/react/24/outline'
+import { CodeBlock, tomorrowNightEighties} from "react-code-blocks";
 
-// swell product
-const product = {
-  name: 'Couch',
-  price: '$499.99',
-  description: 'The best couch money can buy.',
-  options: [
-    {
-      id: "6283894949",
-      name: "Color",
-      active: true,
-      input_type: "radio",
-      variant: true,
-      required: true,
-      attribute_id: "color",
-      values: [
-        {
-          id: '6283894957',
-          name: 'Red Plaid',
-          image: '/plaid.png'
-        },
-        {
-          id: '6283894965',
-          name: 'Blue',
-        },
-        {
-          id: '6283894973',
-          name: 'Green',
-        },
-        {
-          id: '6283894973',
-          name: 'Purple',
-        },
-        {
-          id: '6283894973',
-          name: 'Yellow',
-        },
-      ]
-    },
-    {
-      id: "6283894950",
-      name: "Size",
-      input_type: "select",
-      variant: true,
-      required: true,
-      attribute_id: "size",
-      values: [
-        {
-          id: '6283894951',
-          name: 'Small',
-        },
-        {
-          id: '6283894952',
-          name: 'Medium',
-        },
-        {
-          id: '6283894953',
-          name: 'Large',
-        },
-        {
-          id: '6283894953',
-          name: 'X-Large',
-        }
-      ]
-    },
-    {
-      id: "6283894949",
-      name: "Inseam",
-      active: true,
-      input_type: "radio",
-      variant: true,
-      required: true,
-      attribute_id: "inseam",
-      values: [
-        {
-          id: '6283894957',
-          name: '5"',
-        },
-        {
-          id: '6283894965',
-          name: '7"',
-        },
-        {
-          id: '6283894973',
-          name: '9"',
-        },
-      ]
-    },
-    {
-      id: "6283894949",
-      name: "Liner",
-      active: true,
-      input_type: "radio",
-      variant: true,
-      required: true,
-      attribute_id: "liner",
-      values: [
-        {
-          id: '6283894957',
-          name: 'Liner',
-        },
-        {
-          id: '6283894965',
-          name: 'Linerless',
-        },
-      ]
-    },
-  ]
+
+const OptionTemplate = `
+import { useProduct, useOptions } from 'swellui/react'
+
+// Pass in the product Slug from Swell
+export default ProductOptions = ({slug}) => {
+
+  const { product, options } = useProduct(slug);
+  const { activeVariant, activeOptions, setActiveOptions } = useOptions(product);
+
+  return(
+    <div>
+      <div className='border border-gray p-5 rounded-sm mt-5 flex justify-center'>
+        <div className="w-[350px] border border-gray-100 shadow-md rounded-sm p-5">
+          
+          {options.map((option) => (
+            <div className="pb-4 w-full" key={option.name}>
+              {option.input_type === 'radio' ? (
+                // turn this into its own component
+                <Radio 
+                  option={option} 
+                  checkedClasses={'border-2 border-black'} 
+                  uncheckedClasses={'border border-gray-300'}
+                />
+
+              ) : option.input_type === 'select' ? (
+                // turn this into its own component
+                <Select option={option} />
+              ) : null}
+              
+            </div>
+          ))}
+        </div>
+      </div>
+    
+
+    <a href="" className="block w-full mt-5 text-xs">
+      See it in action
+    </a>
+  </div>
+  )
 }
+`
 
 
 
-
-export default function ProductOptions() {
+export default function Options() {
   const [theme, setTheme] = useState('base')
   const [cms, setCMS] = useState('sanity')
   const [platform, setPlatform] = useState('swell')
+
+  const [enabled, setEnabled] = useState(true)
+  const [isCopied, setIsCopied] = useState(false);
+
+
+
+  // This is the function we wrote earlier
+  async function copyTextToClipboard(text) {
+    if ('clipboard' in navigator) {
+      return await navigator.clipboard.writeText(text);
+    } else {
+      return document.execCommand('copy', true, text);
+    }
+  }
+
+  // onClick handler function for the copy button
+  const handleCopyClick = () => {
+    // Asynchronously call copyTextToClipboard
+    copyTextToClipboard(OptionTemplate)
+      .then(() => {
+        // If successful, update the isCopied state value
+        setIsCopied(true);
+        setTimeout(() => {
+          setIsCopied(false);
+        }, 1500);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <>
@@ -141,55 +105,38 @@ export default function ProductOptions() {
         </div>
 
         <div className="w-full max-w-7xl mx-auto my-20 px-3 md:px-6 lg:px-8">
-      
-          <div>
-            <div className="w-full mt-10">
-              <div className="flex justify-between items-center">
-                <h3>Basic Options</h3>
-                <div className="flex items-center space-x-2">
-                  <div>
-                    Preview
-                  </div>
-                  <select className="border border-gray-300 rounded-md px-3 py-2" onChange={(e) => setCMS(e.target.value)}>
-                    <option value="sanity">Sanity</option>
-                    <option value="builder" disabled>Builder</option>
-                    <option value="plasmic" disabled>Plasmic</option>
-                  </select>
-                  <select className="border border-gray-300 rounded-md px-3 py-2" onChange={(e) => setPlatform(e.target.value)}>
-                    <option value="swell">Swell</option>
-                    <option value="bigcommerce" disabled>BigCommerce</option>
-                  </select>
-                </div>
+          <div className="flex justify-between items-center">
+            <h3>Product Options</h3>
+            <div className="flex items-center space-x-2 divide-x">
+              <div className="flex items-center">
+                <Toggle enabled={enabled} setEnabled={setEnabled}/>
               </div>
-              <div className='border border-gray p-5 rounded-sm mt-5 flex justify-center'>
-                <div className="w-[350px] border border-gray-100 shadow-md rounded-sm p-5">
-                  
-                  {product.options.map((option) => (
-                    <div className="pb-4 w-full" key={option.name}>
-                      {option.input_type === 'radio' ? (
-                        // turn this into its own component
-                        <Radio 
-                          option={option} 
-                          checkedClasses={'border-2 border-black'} 
-                          uncheckedClasses={'border border-gray-300'}
-                        />
-
-                      ) : option.input_type === 'select' ? (
-                        // turn this into its own component
-                        <Select option={option} />
-                      ) : null}
-                      
-                    </div>
-                  ))}
-                </div>
+              <select className="px-3 py-2" onChange={(e) => setCMS(e.target.value)}>
+                <option value="sanity">Sanity</option>
+                <option value="builder" disabled>Builder</option>
+                <option value="plasmic" disabled>Plasmic</option>
+              </select>
+              <select className="px-3 py-2" onChange={(e) => setPlatform(e.target.value)}>
+                <option value="swell">Swell</option>
+              </select>
+              <div>
+                {/* Bind our handler function to the onClick button property */}
+                <button onClick={handleCopyClick} className="flex items-center space-x-2 ml-2">
+                  <DocumentDuplicateIcon className={`h-5 w-5 hover:cursor-pointer transition-all ease-in-out ${isCopied ? 'text-green-500 scale-125' : 'text-gray-600'}`} />
+                </button>
               </div>
             </div>
-
-            <a href="" className="block w-full mt-5 text-xs">
-              See it in action
-            </a>
-          
           </div>
+          <div className='border border-gray rounded-sm mt-5 w-full'>
+            {enabled ? 
+              <div className="p-5">
+                   <ProductOptions />
+              </div>
+              : 
+              <CodeBlock text={OptionTemplate} showLineNumbers={false} theme={tomorrowNightEighties} language="jsx" />}
+
+          </div>
+         
         </div>
         
     </>

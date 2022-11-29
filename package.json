@@ -17,6 +17,7 @@
     "@tailwindcss/typography": "^0.5.7",
     "next": "^13.0.5",
     "react": "^18.2.0",
+    "react-code-blocks": "^0.0.9-0",
     "react-dom": "^18.2.0",
     "react-portable-text": "^0.5.1",
     "react-youtube": "^10.0.0",
