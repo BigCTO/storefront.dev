@@ -44,13 +44,9 @@ export default function Guides({guides}) {
                     <div className='relative w-full h-48 mb-2'>
                       <Image 
                         src={urlFor(guide?.coverImage).url()}
-                        blurDataURL={guide?.coverImage}
-                        placeholder="blur"
-                        layout='fill'
+                        fill
                         alt={guide.name} 
-                        objectFit='cover'
-                        objectPosition='top'
-                        className="rounded-t-md"
+                        className="rounded-t-md object-cover object-top"
                       />
                     </div>
                     <div className="p-3">
